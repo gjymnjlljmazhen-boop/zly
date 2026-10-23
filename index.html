@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<title>❤ 粒子爱心</title>
+<title>❤ 张璐瑶</title>
 <style>
   html, body {
     margin: 0;
@@ -24,7 +24,7 @@
 </style>
 </head>
 <body>
-<canvas id="c" width="640" height="480"></canvas>
+<canvas id="c" width="640" height="480" role="img" aria-label="粒子拼成的爱心，中间是名字：张璐瑶"></canvas>
 <script>
 (() => {
   "use strict";
@@ -38,6 +38,11 @@
   const HEART_COLOR = "#ff2121";
   const FRAME_MS = 160;
   const GENERATE_FRAME = 20;
+
+  // 心形中间用粒子拼出的名字
+  const NAME_TEXT = "张璐瑶";
+  const NAME_TARGET_WIDTH = 236;   // 名字在 640 宽画布上大约占多宽
+  const NAME_STEP = 3;             // 采样步长：越小越密（颗粒越细）
 
   const canvas = document.getElementById("c");
   const ctx = canvas.getContext("2d", { alpha: false });
@@ -155,7 +160,7 @@
     return out;
   }
 
-  function render(framePoints) {
+  function render(framePoints, frameIndex) {
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.fillStyle = HEART_COLOR;
@@ -163,23 +168,81 @@
       const [x, y, size] = framePoints[i];
       ctx.fillRect(x | 0, y | 0, size, size);
     }
+    // 名字跟着同一拍心跳一起缩放
+    const c = curve((frameIndex / 10) * Math.PI);
+    renderName(1 + 0.1 * c, performance.now() / 1000);
+  }
+
+  // ===== 名字粒子：把文字画到离屏画布，再按像素采样成点 =====
+  const NAME_CENTER_Y = CY - 14;
+  const namePoints = [];
+  let nameFontSize = 0;
+
+  function buildNamePoints(text) {
+    const off = document.createElement("canvas");
+    off.width = CANVAS_WIDTH;
+    off.height = CANVAS_HEIGHT;
+    const octx = off.getContext("2d");
+
+    let fontSize = 140;
+    const font = (size) => `700 ${size}px "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif`;
+    octx.font = font(fontSize);
+    while (fontSize > 24 && octx.measureText(text).width > NAME_TARGET_WIDTH) {
+      fontSize -= 4;
+      octx.font = font(fontSize);
+    }
+    nameFontSize = fontSize;
+
+    octx.fillStyle = "#fff";
+    octx.textAlign = "center";
+    octx.textBaseline = "middle";
+    octx.fillText(text, CX, NAME_CENTER_Y);
+
+    const data = octx.getImageData(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT).data;
+    for (let y = 0; y < CANVAS_HEIGHT; y += NAME_STEP) {
+      for (let x = 0; x < CANVAS_WIDTH; x += NAME_STEP) {
+        // 只取不透明像素，坐标转成「相对名字中心」的偏移
+        if (data[(y * CANVAS_WIDTH + x) * 4 + 3] > 128) {
+          namePoints.push([x - CX, y - NAME_CENTER_Y]);
+        }
+      }
+    }
+  }
+
+  /** 画名字：随心跳缩放、每帧轻微抖动 + 闪烁，做出颗粒感。 */
+  function renderName(scale, time) {
+    for (let i = 0; i < namePoints.length; i += 1) {
+      const [ox, oy] = namePoints[i];
+      const jx = (Math.random() - 0.5) * 1.6;
+      const jy = (Math.random() - 0.5) * 1.6;
+      const x = CX + ox * scale + jx;
+      const y = NAME_CENTER_Y + oy * scale + jy;
+      const twinkle = 0.55 + 0.45 * Math.sin(time * 3.4 + i * 0.7);
+      ctx.globalAlpha = twinkle;
+      ctx.fillStyle = i % 9 === 0 ? "#ffffff" : "#ffc9d8";
+      const size = i % 5 === 0 ? 2 : 1;
+      ctx.fillRect(x | 0, y | 0, size + 1, size + 1);
+    }
+    ctx.globalAlpha = 1;
   }
 
   build();
+  buildNamePoints(NAME_TEXT);
 
   let frame = 0;
   let last = 0;
   function tick(now) {
     if (now - last >= FRAME_MS) {
       last = now;
-      render(calc(frame % GENERATE_FRAME));
+      const index = frame % GENERATE_FRAME;
+      render(calc(index), index);
       frame += 1;
     }
     requestAnimationFrame(tick);
   }
 
   // 先画一帧，避免首屏空白
-  render(calc(0));
+  render(calc(0), 0);
   requestAnimationFrame(tick);
 })();
 </script>
