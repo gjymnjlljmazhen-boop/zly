@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>爱心弹窗</title>
+<style>
+  :root {
+    --pink: #ff4d79;
+    --pink-soft: #ffd0df;
+    --ink: #2a1220;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(120% 90% at 50% 0%, #3a1030 0%, #1a0a1c 55%, #0d0611 100%);
+    color: #fff;
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 爱心粒子画布：铺满整屏，不接收指针事件（点击交给 body） */
+  #hearts {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* 弹窗遮罩 */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(10, 4, 14, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s;
+    z-index: 10;
+  }
+  .overlay.open { opacity: 1; visibility: visible; }
+
+  /* 弹窗卡片 */
+  .card {
+    position: relative;
+    width: min(360px, 100%);
+    padding: 30px 26px 24px;
+    border-radius: 26px;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 26px 60px rgba(255, 60, 110, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: translateY(18px) scale(0.94);
+    opacity: 0;
+    transition: transform 0.34s cubic-bezier(.2, .9, .25, 1.2), opacity 0.28s ease;
+  }
+  .overlay.open .card { transform: translateY(0) scale(1); opacity: 1; }
+
+  /* 纯 CSS 爱心 + 心跳动画 */
+  .heart {
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 14px;
+    position: relative;
+    transform: rotate(-45deg);
+    background: linear-gradient(145deg, #ff7fa2, var(--pink) 55%, #c9154a);
+    border-radius: 0 0 6px 0;
+    animation: beat 1.15s ease-in-out infinite;
+    box-shadow: 0 10px 28px rgba(255, 61, 108, 0.55);
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: inherit;
+  }
+  .heart::before { top: -46px; left: 0; }
+  .heart::after { top: 0; left: 46px; }
+
+  @keyframes beat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    14% { transform: rotate(-45deg) scale(1.12); }
+    28% { transform: rotate(-45deg) scale(1); }
+    42% { transform: rotate(-45deg) scale(1.08); }
+    70% { transform: rotate(-45deg) scale(1); }
+  }
+
+  .title {
+    margin: 6px 0 8px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #fff, #ffc2d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subtitle {
+    margin: 0 0 22px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .row { display: flex; gap: 10px; justify-content: center; }
+
+  button {
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 11px 20px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.16s ease, filter 0.16s ease;
+  }
+  button:active { transform: scale(0.96); }
+
+  .primary {
+    color: #fff;
+    background: linear-gradient(135deg, #ff7ba0, var(--pink));
+    box-shadow: 0 10px 24px rgba(255, 61, 108, 0.45);
+  }
+  .primary:hover { filter: brightness(1.06); }
+
+  .ghost {
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  /* 右上角关闭 */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 17px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* 底部提示 */
+  .hint {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    text-align: center;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* 尊重「减少动态效果」系统设置 */
+  @media (prefers-reduced-motion: reduce) {
+    .heart { animation: none; }
+    .card, .overlay { transition: none; }
+  }
+</style>
+</head>
+<body>
+  <canvas id="hearts" aria-hidden="true"></canvas>
+
+  <!-- 常驻入口按钮 -->
+  <div class="hint">点屏幕任意位置放一个爱心 · <a href="#" id="openLink" style="color:#ff9dbb;pointer-events:auto;text-decoration:underline dotted">打开弹窗</a></div>
+
+  <!-- 弹窗本体 -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="card">
+      <button class="close" id="closeBtn" aria-label="关闭">×</button>
+      <div class="heart" aria-hidden="true"></div>
+      <h1 class="title" id="dialogTitle">给你一个爱心</h1>
+      <p class="subtitle">今天也辛苦啦，收下它吧。<br>点下面的按钮，再放一团出去。</p>
+      <div class="row">
+        <button class="primary" id="burstBtn">再放一个 ❤</button>
+        <button class="ghost" id="dismissBtn">收下并关闭</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("hearts");
+  const ctx = canvas.getContext("2d");
+  const overlay = document.getElementById("overlay");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  const hearts = [];
+
+  /** 画一颗爱心：两条三次贝塞尔组成经典心形。 */
+  function traceHeart(c, x, y, size, rotation) {
+    c.save();
+    c.translate(x, y);
+    c.rotate(rotation);
+    c.scale(size / 24, size / 24);
+    c.beginPath();
+    c.moveTo(0, 6);
+    c.bezierCurveTo(-12, -4, -12, -13, -6, -14);
+    c.bezierCurveTo(-2, -14.6, 0, -11, 0, -9);
+    c.bezierCurveTo(0, -11, 2, -14.6, 6, -14);
+    c.bezierCurveTo(12, -13, 12, -4, 0, 6);
+    c.closePath();
+    c.restore();
+  }
+
+  const PALETTE = ["#ff4d79", "#ff7ba0", "#ff9dbb", "#ff2d63", "#ffb3c9"];
+
+  function spawn(options = {}) {
+    const {
+      x = Math.random() * width,
+      y = height + 30,
+      size = 10 + Math.random() * 20,
+      vy = -(26 + Math.random() * 46),
+      vx = (Math.random() - 0.5) * 26,
+      life = 4.5 + Math.random() * 2.5,
+      burst = false,
+    } = options;
+
+    hearts.push({
+      x,
+      y,
+      vx,
+      vy,
+      size,
+      life,
+      age: 0,
+      rotation: (Math.random() - 0.5) * 0.5,
+      spin: (Math.random() - 0.5) * 0.9,
+      color: PALETTE[(Math.random() * PALETTE.length) | 0],
+      burst,
+    });
+
+    // 粒子上限，避免长时间挂机后内存增长
+    if (hearts.length > 260) hearts.splice(0, hearts.length - 260);
+  }
+
+  /** 从某点炸开一圈爱心。 */
+  function burst(x, y, count = 16) {
+    for (let i = 0; i < count; i += 1) {
+      const angle = (Math.PI * 2 * i) / count + Math.random() * 0.3;
+      const speed = 90 + Math.random() * 150;
+      spawn({
+        x,
+        y,
+        size: 12 + Math.random() * 18,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 40,
+        life: 1.5 + Math.random(),
+        burst: true,
+      });
+    }
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = canvas.clientWidth;
+    height = canvas.clientHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = hearts.length - 1; i >= 0; i -= 1) {
+      const h = hearts[i];
+      h.age += dt;
+      if (h.age >= h.life) {
+        hearts.splice(i, 1);
+        continue;
+      }
+
+      // 上升时轻微摆动，炸开的花瓣受重力回落
+      if (h.burst) {
+        h.vy += 220 * dt;
+        h.x += h.vx * dt;
+        h.y += h.vy * dt;
+      } else {
+        h.x += (h.vx + Math.sin((h.age + h.size) * 2.2) * 16) * dt;
+        h.y += h.vy * dt;
+      }
+      h.rotation += h.spin * dt;
+
+      const k = h.age / h.life;
+      const alpha = k < 0.12 ? k / 0.12 : 1 - Math.max(0, (k - 0.62) / 0.38);
+      ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+
+      traceHeart(ctx, h.x, h.y, h.size, h.rotation);
+      ctx.fillStyle = h.color;
+      ctx.fill();
+
+      // 高光让爱心有层次
+      ctx.globalAlpha *= 0.28;
+      traceHeart(ctx, h.x - h.size * 0.12, h.y - h.size * 0.12, h.size * 0.62, h.rotation);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+
+  // 环境爱心：慢速持续飘出（减少动态效果时关掉）
+  if (!reduceMotion) {
+    setInterval(() => {
+      if (document.hidden) return;
+      spawn({ size: 9 + Math.random() * 14, life: 6 + Math.random() * 3 });
+    }, 900);
+  }
+
+  function open() {
+    overlay.classList.add("open");
+    const rect = overlay.querySelector(".card").getBoundingClientRect();
+    burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 18);
+  }
+
+  function close() {
+    overlay.classList.remove("open");
+  }
+
+  // 交互绑定
+  document.getElementById("openLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    open();
+  });
+  document.getElementById("burstBtn").addEventListener("click", (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    burst(rect.left + rect.width / 2, rect.top, 22);
+  });
+  document.getElementById("dismissBtn").addEventListener("click", close);
+  document.getElementById("closeBtn").addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+
+  // 点空白处冒一颗；点卡片不触发
+  addEventListener("pointerdown", (e) => {
+    if (e.target.closest(".card")) return;
+    const rect = canvas.getBoundingClientRect();
+    spawn({ x: e.clientX - rect.left, y: e.clientY - rect.top, size: 14 + Math.random() * 16, vy: -40 });
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
