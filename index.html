@@ -41,8 +41,8 @@
 
   // 心形中间用粒子拼出的名字
   const NAME_TEXT = "张璐瑶";
-  const NAME_TARGET_WIDTH = 236;   // 名字在 640 宽画布上大约占多宽
-  const NAME_STEP = 3;             // 采样步长：越小越密（颗粒越细）
+  const NAME_TARGET_WIDTH = 286;   // 名字在 640 宽画布上大约占多宽
+  const NAME_STEP = 2;             // 采样步长：越小越密（颗粒越细）
 
   const canvas = document.getElementById("c");
   const ctx = canvas.getContext("2d", { alpha: false });
@@ -185,7 +185,7 @@
     const octx = off.getContext("2d");
 
     let fontSize = 140;
-    const font = (size) => `700 ${size}px "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif`;
+    const font = (size) => `900 ${size}px "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif`;
     octx.font = font(fontSize);
     while (fontSize > 24 && octx.measureText(text).width > NAME_TARGET_WIDTH) {
       fontSize -= 4;
@@ -209,19 +209,29 @@
     }
   }
 
-  /** 画名字：随心跳缩放、每帧轻微抖动 + 闪烁，做出颗粒感。 */
+  /** 画名字：先铺一层暖光晕，再盖一层近白实心点，保证在小屏上也清晰。 */
   function renderName(scale, time) {
+    // 第一遍：光晕（略大、偏粉、半透明），把名字从红色心形里“托”出来
+    ctx.fillStyle = "#ff6f95";
+    ctx.globalAlpha = 0.35;
     for (let i = 0; i < namePoints.length; i += 1) {
       const [ox, oy] = namePoints[i];
-      const jx = (Math.random() - 0.5) * 1.6;
-      const jy = (Math.random() - 0.5) * 1.6;
+      const x = CX + ox * scale;
+      const y = NAME_CENTER_Y + oy * scale;
+      ctx.fillRect((x | 0) - 1, (y | 0) - 1, 4, 4);
+    }
+
+    // 第二遍：主体点，抖动收小、闪烁收敛，保证笔画连得上
+    for (let i = 0; i < namePoints.length; i += 1) {
+      const [ox, oy] = namePoints[i];
+      const jx = (Math.random() - 0.5) * 0.8;
+      const jy = (Math.random() - 0.5) * 0.8;
       const x = CX + ox * scale + jx;
       const y = NAME_CENTER_Y + oy * scale + jy;
-      const twinkle = 0.55 + 0.45 * Math.sin(time * 3.4 + i * 0.7);
+      const twinkle = 0.82 + 0.18 * Math.sin(time * 3.4 + i * 0.7);
       ctx.globalAlpha = twinkle;
-      ctx.fillStyle = i % 9 === 0 ? "#ffffff" : "#ffc9d8";
-      const size = i % 5 === 0 ? 2 : 1;
-      ctx.fillRect(x | 0, y | 0, size + 1, size + 1);
+      ctx.fillStyle = i % 11 === 0 ? "#ffffff" : i % 4 === 0 ? "#fff1f5" : "#ffe3ec";
+      ctx.fillRect(x | 0, y | 0, 2, 2);
     }
     ctx.globalAlpha = 1;
   }
