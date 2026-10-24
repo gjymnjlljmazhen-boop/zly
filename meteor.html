@@ -26,26 +26,32 @@
   }
   .hint.hide { opacity: 0; }
 
-  .back-link {
+
+  #sound {
     position: fixed;
-    left: 14px;
-    bottom: max(12px, env(safe-area-inset-bottom));
-    z-index: 5;
-    color: rgba(235, 205, 235, 0.45);
-    font: 12px/1 system-ui, -apple-system, "PingFang SC", sans-serif;
-    letter-spacing: 0.12em;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(235, 205, 235, 0.15);
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(235, 205, 235, 0.18);
+    background: rgba(20, 16, 32, 0.55);
+    color: rgba(255, 225, 240, 0.85);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 6;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: border-color 0.2s ease, transform 0.16s ease;
   }
-  .back-link:active { color: #ffe0ee; }
+  #sound:active { transform: scale(0.94); border-color: rgba(255, 190, 220, 0.5); }
 </style>
 </head>
 <body>
-<a class="back-link" href="./">← 爱心</a>
 <canvas id="sky"></canvas>
-<div class="hint" id="hint">点一下，许个愿</div>
+<button id="sound" aria-label="音乐开关">🔊</button>
+<div class="hint" id="hint">点一下，开启流星雨与音乐</div>
 <script>
 (() => {
   "use strict";
@@ -54,6 +60,92 @@
   const ctx = canvas.getContext("2d");
   const hint = document.getElementById("hint");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ===== 背景音乐：纯 WebAudio 合成，不加载任何外部音频文件 =====
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  let ac = null;
+  let master = null;
+  let delay = null;
+  let muted = false;
+  try { muted = localStorage.getItem("meteor.muted") === "1"; } catch {}
+  let lastBell = 0;
+
+  function initAudio() {
+    if (ac || !AudioCtor) return;
+    ac = new AudioCtor();
+    master = ac.createGain();
+    master.gain.value = 0;
+    master.connect(ac.destination);
+
+    // 空灵的回声：延迟 + 反馈
+    delay = ac.createDelay(2);
+    delay.delayTime.value = 0.42;
+    const feedback = ac.createGain(); feedback.gain.value = 0.34;
+    const wet = ac.createGain(); wet.gain.value = 0.4;
+    delay.connect(feedback); feedback.connect(delay);
+    delay.connect(wet); wet.connect(master);
+
+    // 铺底：Aadd9 和弦 + 低通 + 缓慢起伏
+    const pad = ac.createBiquadFilter();
+    pad.type = "lowpass"; pad.frequency.value = 880; pad.Q.value = 0.7;
+    pad.connect(master);
+
+    [110, 164.81, 277.18, 493.88].forEach((freq, i) => {
+      const osc = ac.createOscillator();
+      osc.type = i < 2 ? "sine" : "triangle";
+      osc.frequency.value = freq;
+      osc.detune.value = (Math.random() - 0.5) * 10;
+      const gain = ac.createGain();
+      gain.gain.value = i < 2 ? 0.1 : 0.04;
+      osc.connect(gain); gain.connect(pad);
+      osc.start();
+    });
+
+    const lfo = ac.createOscillator(); lfo.frequency.value = 0.05;
+    const lfoGain = ac.createGain(); lfoGain.gain.value = 240;
+    lfo.connect(lfoGain); lfoGain.connect(pad.frequency);
+    lfo.start();
+  }
+
+  /** A 大调五声音阶：流星划过时随机落一枚铃音 */
+  const NOTES = [440, 493.88, 554.37, 659.25, 739.99, 880];
+
+  function bell(volume) {
+    if (!ac || muted || ac.state !== "running") return;
+    const now = ac.currentTime;
+    const freq = NOTES[(Math.random() * NOTES.length) | 0];
+    const osc = ac.createOscillator();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    const gain = ac.createGain();
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(volume, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+    osc.connect(gain);
+    gain.connect(master);
+    gain.connect(delay);
+    osc.start(now);
+    osc.stop(now + 1.9);
+    lastBell = performance.now();
+  }
+
+  function startAudio() {
+    initAudio();
+    if (!ac) return;
+    if (ac.state === "suspended") ac.resume();
+    if (!muted) master.gain.setTargetAtTime(0.16, ac.currentTime, 1.4);
+  }
+
+  function setMuted(next) {
+    muted = next;
+    try { localStorage.setItem("meteor.muted", muted ? "1" : "0"); } catch {}
+    const btn = document.getElementById("sound");
+    if (btn) {
+      btn.textContent = muted ? "🔇" : "🔊";
+      btn.setAttribute("aria-label", muted ? "打开音乐" : "关闭音乐");
+    }
+    if (ac) master.gain.setTargetAtTime(muted ? 0 : 0.16, ac.currentTime, 0.4);
+  }
 
   let W = 0, H = 0, dpr = 1;
   const stars = [];
@@ -125,6 +217,8 @@
       tint,
       emitAt: 0,
     });
+
+    if (performance.now() - lastBell > 900) bell(0.03 + Math.random() * 0.02);
   }
 
   /** 尾迹上洒落的碎钻 */
@@ -291,10 +385,37 @@
     requestAnimationFrame(frame);
   }
 
-  addEventListener("pointerdown", () => {
+  addEventListener("pointerdown", (event) => {
+    // 点音乐按钮时不要顺带放一波流星
+    if (event.target && event.target.closest && event.target.closest("#sound")) return;
     hint.classList.add("hide");
+    startAudio();
     burstUntil = performance.now() + 1500;
     for (let i = 0; i < 7; i += 1) setTimeout(() => spawnMeteor(i % 3 === 0), i * 100);
+  });
+
+  const soundBtn = document.getElementById("sound");
+  if (!AudioCtor) soundBtn.style.display = "none";
+  else {
+    setMuted(muted);
+    soundBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (muted) startAudio();
+      setMuted(!muted);
+    });
+  }
+
+  // 安静时每隔一会儿落一枚铃音，别太密
+  setInterval(() => {
+    if (!ac || muted || document.hidden || ac.state !== "running") return;
+    if (performance.now() - lastBell < 1500) return;
+    if (Math.random() < 0.55) bell(0.03 + Math.random() * 0.03);
+  }, 2200);
+
+  document.addEventListener("visibilitychange", () => {
+    if (!ac) return;
+    if (document.hidden) ac.suspend();
+    else if (!muted) ac.resume();
   });
 
   addEventListener("resize", resize);
