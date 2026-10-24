@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12060f">
+<title>樱花 · 爱心</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #12060f;
+  }
+  canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: fixed;
+    left: 0; right: 0;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    text-align: center;
+    color: rgba(255, 200, 220, 0.4);
+    font: 12px/1.6 system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+    transition: opacity 1.2s ease;
+  }
+  .hint.hide { opacity: 0; }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+<div class="hint" id="hint">点一下，樱花会帮你把心聚起来</div>
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("scene");
+  const ctx = canvas.getContext("2d");
+  const hint = document.getElementById("hint");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let W = 0, H = 0, dpr = 1;
+  let cx = 0, cy = 0;
+
+  const petals = [];
+  const particles = [];
+
+  const PETAL_COUNT = 120;
+  const PARTICLE_COUNT = 620;
+  /** 攒心总时长（秒）：粒子一颗颗出发，最后拼成完整的心 */
+  const GATHER_TIME = 2.6;
+  const FLY_TIME = 1.5;
+
+  /** 爱心参数方程，返回画布坐标（相对中心，已乘 scale） */
+  function heartPoint(t, scale) {
+    const x = 16 * Math.sin(t) ** 3;
+    const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+    return { x: x * scale, y: y * scale };
+  }
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = W / 2;
+    cy = H / 2;
+    layoutPetals();
+    layoutParticles();
+  }
+
+  // ---------- 樱花 ----------
+  function makePetal(initial) {
+    return {
+      x: Math.random() * W,
+      y: initial ? Math.random() * H : -30 - Math.random() * 80,
+      size: 5 + Math.random() * 7,
+      rot: Math.random() * Math.PI * 2,
+      spin: (Math.random() - 0.5) * 1.6,
+      vy: 26 + Math.random() * 46,
+      sway: 16 + Math.random() * 30,
+      swaySpeed: 0.6 + Math.random() * 1.1,
+      phase: Math.random() * Math.PI * 2,
+      alpha: 0.45 + Math.random() * 0.45,
+      warm: Math.random() < 0.35,
+    };
+  }
+
+  function layoutPetals() {
+    petals.length = 0;
+    const n = Math.round(PETAL_COUNT * Math.min(1.8, Math.max(0.8, W / 420)));
+    for (let i = 0; i < n; i += 1) petals.push(makePetal(true));
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.globalAlpha = p.alpha;
+    // 花瓣：两段贝塞尔收在底部，顶端略尖
+    ctx.beginPath();
+    ctx.moveTo(0, -p.size);
+    ctx.bezierCurveTo(p.size * 0.8, -p.size * 0.5, p.size * 0.72, p.size * 0.62, 0, p.size);
+    ctx.bezierCurveTo(-p.size * 0.72, p.size * 0.62, -p.size * 0.8, -p.size * 0.5, 0, -p.size);
+    ctx.closePath();
+    const g = ctx.createLinearGradient(0, -p.size, 0, p.size);
+    if (p.warm) {
+      g.addColorStop(0, "rgba(255, 236, 245, 0.95)");
+      g.addColorStop(1, "rgba(255, 178, 205, 0.9)");
+    } else {
+      g.addColorStop(0, "rgba(255, 245, 250, 0.95)");
+      g.addColorStop(1, "rgba(255, 200, 222, 0.85)");
+    }
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+
+  function updatePetals(dt, time) {
+    for (const p of petals) {
+      p.y += p.vy * dt;
+      p.rot += p.spin * dt;
+      p.x += Math.sin(time * p.swaySpeed + p.phase) * p.sway * dt;
+      if (p.y > H + 40) {
+        p.y = -30 - Math.random() * 80;
+        p.x = Math.random() * W;
+      }
+      drawPetal(p);
+    }
+  }
+
+  // ---------- 攒心的粒子 ----------
+  function layoutParticles() {
+    particles.length = 0;
+    // 爱心整体缩放：让它大约占短边的 65%
+    const scale = Math.min(W, H) * 0.021;
+    // 整圈参数方程均匀取样，保证 620 颗点铺满整个心形轮廓
+    const samples = PARTICLE_COUNT;
+    for (let i = 0; i < samples; i += 1) {
+      const t = (i / samples) * Math.PI * 2;
+      const { x, y } = heartPoint(t, scale);
+      // 轮廓上的点 + 少量内部填充点，让心是「实心一点的轮廓」，不是单线
+      const inset = Math.random() < 0.28 ? 0.62 + Math.random() * 0.3 : 1;
+      const targetX = x * inset;
+      const targetY = y * inset;
+      const startAngle = Math.random() * Math.PI * 2;
+      const startDist = Math.max(W, H) * (0.55 + Math.random() * 0.5);
+      particles.push({
+        sx: cx + Math.cos(startAngle) * startDist,
+        sy: cy + Math.sin(startAngle) * startDist * 0.7,
+        tx: targetX,
+        ty: targetY,
+        delay: 0.25 + (i / samples) * GATHER_TIME + Math.random() * 0.25,
+        size: 1.1 + Math.random() * 1.7,
+        hue: Math.random() < 0.22 ? 32 : 342,     // 少量暖金，其余樱粉
+        swirl: (Math.random() - 0.5) * 2.4,
+        phase: Math.random() * Math.PI * 2,
+      });
+    }
+  }
+
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+  let startedAt = 0;
+  let restartAt = 0;
+
+  function restart(now) {
+    startedAt = now;
+    // 每颗粒子重新随机一个出发点，重聚时才不会「原路返回」
+    for (const p of particles) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.max(W, H) * (0.55 + Math.random() * 0.5);
+      p.sx = cx + Math.cos(angle) * dist;
+      p.sy = cy + Math.sin(angle) * dist * 0.7;
+      p.swirl = (Math.random() - 0.5) * 2.4;
+    }
+  }
+
+  function drawHeartParticles(now) {
+    const t = (now - startedAt) / 1000;
+    let arrived = 0;
+
+    for (const p of particles) {
+      const local = (t - p.delay) / FLY_TIME;
+      if (local <= 0) continue;
+      const k = Math.min(1, local);
+      const e = easeOut(k);
+      if (k >= 1) arrived += 1;
+
+      // 星尘般的螺旋：越接近目标，横向摆动越小
+      const sway = (1 - e) * 26;
+      const x = p.sx + (cx + p.tx - p.sx) * e + Math.cos(t * 1.7 + p.phase + p.swirl) * sway;
+      const y = p.sy + (cy + p.ty - p.sy) * e + Math.sin(t * 1.7 + p.phase + p.swirl) * sway;
+
+      // 到位后轻轻呼吸
+      const breathe = k >= 1 ? 1 + 0.35 * Math.sin(t * 2.2 + p.phase) : 1;
+      const size = p.size * (0.6 + 0.4 * e) * breathe;
+      const alpha = 0.25 + 0.75 * e;
+
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = p.hue === 32 ? "rgba(255, 214, 160, 1)" : "rgba(255, 138, 178, 1)";
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 亮一点的粒子加个十字星芒，让心看起来在发亮
+      if (p.size > 2.2 && k > 0.95) {
+        ctx.globalAlpha = 0.5 * alpha;
+        ctx.strokeStyle = "rgba(255, 225, 240, 1)";
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(x - size * 2.4, y);
+        ctx.lineTo(x + size * 2.4, y);
+        ctx.moveTo(x, y - size * 2.4);
+        ctx.lineTo(x, y + size * 2.4);
+        ctx.stroke();
+      }
+    }
+
+    ctx.globalAlpha = 1;
+    return arrived;
+  }
+
+  // ---------- 背景 ----------
+  function drawSky() {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, "#1c0a17");
+    g.addColorStop(0.45, "#150812");
+    g.addColorStop(1, "#0a040a");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    // 中间一团柔光，把心托住
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.55);
+    glow.addColorStop(0, "rgba(255, 120, 160, 0.14)");
+    glow.addColorStop(0.5, "rgba(255, 90, 140, 0.05)");
+    glow.addColorStop(1, "rgba(255, 90, 140, 0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  let last = performance.now();
+  let formedOnce = false;
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const time = now / 1000;
+
+    drawSky();
+    updatePetals(dt, time);
+
+    // 心形粒子用 lighter 叠光，更透亮
+    ctx.globalCompositeOperation = "lighter";
+    const arrived = drawHeartParticles(now);
+    ctx.globalCompositeOperation = "source-over";
+
+    if (!formedOnce && arrived > particles.length * 0.98) {
+      formedOnce = true;
+      hint.classList.add("hide");
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  addEventListener("pointerdown", () => {
+    restart(performance.now());
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  startedAt = performance.now();
+  requestAnimationFrame(frame);
+
+  // 提示文字几秒后自己淡掉
+  setTimeout(() => hint.classList.add("hide"), 9000);
+})();
+</script>
+</body>
+</html>
