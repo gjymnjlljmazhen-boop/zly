@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0714">
+<title>流星雨</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #0a0714;
+  }
+  canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: fixed;
+    left: 0; right: 0;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    text-align: center;
+    color: rgba(235, 205, 235, 0.42);
+    font: 12px/1.6 system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    letter-spacing: 0.22em;
+    pointer-events: none;
+    transition: opacity 1.4s ease;
+  }
+  .hint.hide { opacity: 0; }
+
+  .back-link {
+    position: fixed;
+    left: 14px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 5;
+    color: rgba(235, 205, 235, 0.45);
+    font: 12px/1 system-ui, -apple-system, "PingFang SC", sans-serif;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(235, 205, 235, 0.15);
+  }
+  .back-link:active { color: #ffe0ee; }
+</style>
+</head>
+<body>
+<a class="back-link" href="./">← 爱心</a>
+<canvas id="sky"></canvas>
+<div class="hint" id="hint">点一下，许个愿</div>
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("sky");
+  const ctx = canvas.getContext("2d");
+  const hint = document.getElementById("hint");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let W = 0, H = 0, dpr = 1;
+  const stars = [];
+  const meteors = [];
+  const sparkles = [];
+
+  /** 统一朝左下：从右上角斜斜滑向画面中间（148° ≈ 水平向左、向下 32°） */
+  const BASE_ANGLE = (148 * Math.PI) / 180;
+
+  /** 浪漫配色：暖金、樱粉、冷紫、奶油白 */
+  const TINTS = [
+    [255, 214, 170],
+    [255, 170, 200],
+    [205, 190, 255],
+    [255, 236, 200],
+  ];
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildStars();
+  }
+
+  function buildStars() {
+    stars.length = 0;
+    const count = Math.round((W * H) / 5200);
+    for (let i = 0; i < count; i += 1) {
+      const warm = Math.random();
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() < 0.88 ? Math.random() * 1.1 + 0.3 : Math.random() * 1.9 + 1.1,
+        a: 0.22 + Math.random() * 0.62,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.5 + Math.random() * 1.4,
+        // 三分之一的星星偏暖粉，其余偏冷白，夜空更有层次
+        color: warm < 0.33 ? "255, 226, 236" : warm < 0.6 ? "205, 214, 255" : "255, 255, 255",
+      });
+    }
+  }
+
+  /** 一颗流星：从右上角外面出发，瞄准画面中央附近 */
+  function spawnMeteor(big = false) {
+    const angle = BASE_ANGLE + (Math.random() - 0.5) * 0.2;
+    const dirX = Math.cos(angle);
+    const dirY = Math.sin(angle);
+
+    // 目标点围绕画面中心抖动，让每颗流星都“落向中间”
+    const tx = W * 0.5 + (Math.random() - 0.5) * W * 0.36;
+    const ty = H * 0.5 + (Math.random() - 0.5) * H * 0.3;
+
+    const travel = Math.hypot(W, H) * (0.92 + Math.random() * 0.3);
+    const speed = big ? 360 + Math.random() * 130 : 440 + Math.random() * 250;
+    const tint = TINTS[(Math.random() * TINTS.length) | 0];
+
+    meteors.push({
+      x: tx - dirX * travel,
+      y: ty - dirY * travel,
+      vx: dirX * speed,
+      vy: dirY * speed,
+      len: big ? 240 + Math.random() * 150 : 130 + Math.random() * 120,
+      size: big ? 2.4 + Math.random() * 1.3 : 1.1 + Math.random() * 1.1,
+      life: 0,
+      maxLife: (travel * 1.18) / speed,
+      tint,
+      emitAt: 0,
+    });
+  }
+
+  /** 尾迹上洒落的碎钻 */
+  function emitSparkle(m) {
+    sparkles.push({
+      x: m.x + (Math.random() - 0.5) * m.size * 4,
+      y: m.y + (Math.random() - 0.5) * m.size * 4,
+      vx: m.vx * 0.06 + (Math.random() - 0.5) * 12,
+      vy: m.vy * 0.06 + (Math.random() - 0.5) * 12,
+      r: 0.7 + Math.random() * 1.3,
+      life: 0,
+      maxLife: 0.7 + Math.random() * 0.8,
+      tint: m.tint,
+    });
+  }
+
+  let nextSpawn = 500;
+  let burstUntil = 0;
+
+  function autoSpawn(now) {
+    if (now < nextSpawn) return;
+    if (now < burstUntil) {
+      spawnMeteor(Math.random() < 0.5);
+      nextSpawn = now + 110 + Math.random() * 180;
+      return;
+    }
+    spawnMeteor(Math.random() < 0.16);
+    nextSpawn = now + 900 + Math.random() * 1800;
+    if (Math.random() < 0.14) burstUntil = now + 1300 + Math.random() * 900;
+  }
+
+  function drawSky() {
+    const bg = ctx.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, "#160d24");
+    bg.addColorStop(0.5, "#0b0716");
+    bg.addColorStop(1, "#050409");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    // 右上角的“月光”余晖：流星都从这一片光里落下来
+    const glow = ctx.createRadialGradient(W * 0.86, H * 0.04, 0, W * 0.86, H * 0.04, Math.max(W, H) * 0.62);
+    glow.addColorStop(0, "rgba(190, 165, 255, 0.20)");
+    glow.addColorStop(0.35, "rgba(255, 150, 190, 0.09)");
+    glow.addColorStop(1, "rgba(255, 150, 190, 0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+
+    // 底部一点冷雾，压住画面重心
+    const floor = ctx.createLinearGradient(0, H * 0.62, 0, H);
+    floor.addColorStop(0, "rgba(30, 30, 70, 0)");
+    floor.addColorStop(1, "rgba(20, 24, 60, 0.35)");
+    ctx.fillStyle = floor;
+    ctx.fillRect(0, H * 0.62, W, H * 0.38);
+  }
+
+  function drawStars(time) {
+    for (let i = 0; i < stars.length; i += 1) {
+      const s = stars[i];
+      const tw = s.a * (0.6 + 0.4 * Math.sin(time * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(" + s.color + "," + tw.toFixed(3) + ")";
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function drawMeteor(m) {
+    const speed = Math.hypot(m.vx, m.vy) || 1;
+    const dx = m.vx / speed;
+    const dy = m.vy / speed;
+    const tailX = m.x - dx * m.len;
+    const tailY = m.y - dy * m.len;
+    const [r, g, b] = m.tint;
+
+    // 尾迹：头亮尾淡，中段带一点柔粉
+    const grad = ctx.createLinearGradient(tailX, tailY, m.x, m.y);
+    grad.addColorStop(0, `rgba(${r},${g},${b},0)`);
+    grad.addColorStop(0.45, `rgba(${r},${g},${b},0.16)`);
+    grad.addColorStop(0.82, `rgba(${r},${g},${b},0.65)`);
+    grad.addColorStop(1, `rgba(255,255,255,0.92)`);
+
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = m.size;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(tailX, tailY);
+    ctx.lineTo(m.x, m.y);
+    ctx.stroke();
+
+    // 头部光晕
+    const glow = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.size * 8);
+    glow.addColorStop(0, "rgba(255,255,255,0.95)");
+    glow.addColorStop(0.3, `rgba(${r},${g},${b},0.6)`);
+    glow.addColorStop(1, `rgba(${r},${g},${b},0)`);
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(m.x, m.y, m.size * 8, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function drawSparkles() {
+    for (let i = sparkles.length - 1; i >= 0; i -= 1) {
+      const s = sparkles[i];
+      const k = s.life / s.maxLife;
+      if (k >= 1) { sparkles.splice(i, 1); continue; }
+      const [r, g, b] = s.tint;
+      ctx.globalAlpha = (1 - k) * 0.9;
+      ctx.fillStyle = `rgba(${r},${g},${b},1)`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r * (1 - k * 0.6), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  let last = performance.now();
+  const started = last;
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const time = (now - started) / 1000;
+
+    drawSky();
+    ctx.globalCompositeOperation = "lighter";
+    drawStars(time);
+
+    if (!reduceMotion) autoSpawn(now);
+
+    for (let i = meteors.length - 1; i >= 0; i -= 1) {
+      const m = meteors[i];
+      m.life += dt;
+      m.x += m.vx * dt;
+      m.y += m.vy * dt;
+
+      if (m.life > m.maxLife) { meteors.splice(i, 1); continue; }
+
+      // 每飞一小段就洒一两颗碎钻
+      if (m.life > m.emitAt) {
+        m.emitAt = m.life + 0.03;
+        emitSparkle(m);
+        if (Math.random() < 0.35) emitSparkle(m);
+      }
+
+      const k = m.life / m.maxLife;
+      const fade = k < 0.12 ? k / 0.12 : k > 0.9 ? (1 - k) / 0.1 : 1;
+      ctx.globalAlpha = Math.max(0, Math.min(1, fade));
+      drawMeteor(m);
+    }
+
+    for (let i = sparkles.length - 1; i >= 0; i -= 1) {
+      const s = sparkles[i];
+      s.life += dt;
+      s.x += s.vx * dt;
+      s.y += s.vy * dt;
+    }
+    drawSparkles();
+
+    // 碎钻上限，长时间挂着也不涨内存
+    if (sparkles.length > 900) sparkles.splice(0, sparkles.length - 900);
+
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = "source-over";
+    requestAnimationFrame(frame);
+  }
+
+  addEventListener("pointerdown", () => {
+    hint.classList.add("hide");
+    burstUntil = performance.now() + 1500;
+    for (let i = 0; i < 7; i += 1) setTimeout(() => spawnMeteor(i % 3 === 0), i * 100);
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(frame);
+
+  setTimeout(() => spawnMeteor(true), 100);
+  setTimeout(() => spawnMeteor(false), 700);
+})();
+</script>
+</body>
+</html>
