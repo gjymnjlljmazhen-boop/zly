@@ -22,25 +22,9 @@
     image-rendering: pixelated;
   }
 
-  .nav-link {
-    position: fixed;
-    right: 14px;
-    bottom: max(12px, env(safe-area-inset-bottom));
-    z-index: 5;
-    color: rgba(255, 175, 200, 0.55);
-    font: 12px/1 system-ui, -apple-system, "PingFang SC", sans-serif;
-    letter-spacing: 0.12em;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 175, 200, 0.18);
-    transition: color 0.2s ease, border-color 0.2s ease;
-  }
-  .nav-link:active { color: #ffd3e2; border-color: rgba(255, 175, 200, 0.5); }
 </style>
 </head>
 <body>
-<a class="nav-link" href="meteor.html">✦ 流星雨</a>
 <canvas id="c" width="640" height="480" role="img" aria-label="粒子拼成的爱心，中间是名字：张璐瑶"></canvas>
 <script>
 (() => {
