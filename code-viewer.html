@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e0b16">
+<title>源码查看</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0e0b16; color: #e8e3f2;
+    font: 13px/1.6 system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  header {
+    position: sticky; top: 0; z-index: 2;
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    padding: 10px 12px;
+    background: rgba(14, 11, 22, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  button.tab {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent; color: #cfc7e6;
+    padding: 5px 11px; border-radius: 999px;
+    font-size: 12px; cursor: pointer;
+  }
+  button.tab.on { background: #ff5c8a; border-color: #ff5c8a; color: #fff; }
+  .spacer { flex: 1; }
+  #copy {
+    border: 1px solid rgba(255, 255, 255, 0.16); background: transparent;
+    color: #cfc7e6; padding: 5px 11px; border-radius: 999px; font-size: 12px; cursor: pointer;
+  }
+  pre {
+    margin: 0; padding: 14px 12px 40px;
+    white-space: pre; overflow: auto;
+    font: 12px/1.55 "SF Mono", "Courier New", monospace;
+    tab-size: 4;
+    color: #d9d2ea;
+  }
+  .note { color: #8f86a8; font-size: 12px; padding: 0 12px 12px; }
+</style>
+</head>
+<body>
+<header>
+  <button class="tab on" data-file="popup-heart.html">popup-heart.html</button>
+  <button class="tab" data-file="popup_heart.py">popup_heart.py</button>
+  <button class="tab" data-file="popup-heart-preview.svg">preview.svg</button>
+  <span class="spacer"></span>
+  <button id="copy">复制</button>
+</header>
+<div class="note" id="note">加载中…</div>
+<pre id="code"></pre>
+<script>
+(() => {
+  const codeEl = document.getElementById("code");
+  const noteEl = document.getElementById("note");
+  const tabs = [...document.querySelectorAll(".tab")];
+  let current = "";
+  let text = "";
+
+  const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+  async function load(file) {
+    current = file;
+    tabs.forEach((t) => t.classList.toggle("on", t.dataset.file === file));
+    noteEl.textContent = "加载中…";
+    codeEl.textContent = "";
+    try {
+      const res = await fetch(file, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      text = await res.text();
+      codeEl.innerHTML = esc(text);
+      noteEl.textContent = file + " · " + text.split("\n").length + " 行 · 可左右滑动查看";
+    } catch (e) {
+      text = "";
+      noteEl.textContent = "读取失败：" + e.message;
+    }
+  }
+
+  tabs.forEach((t) => t.addEventListener("click", () => load(t.dataset.file)));
+  document.getElementById("copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      noteEl.textContent = "已复制 " + current;
+    } catch {
+      noteEl.textContent = "复制失败，可长按选择文本";
+    }
+  });
+
+  load("popup-heart.html");
+})();
+</script>
+</body>
+</html>
