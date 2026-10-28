@@ -1,0 +1,914 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="0%" r="120%">
+    <stop offset="0%" stop-color="#2a1747"/>
+    <stop offset="45%" stop-color="#1b1030"/>
+    <stop offset="100%" stop-color="#0d0818"/>
+  </radialGradient>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%">
+    <feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#000" flood-opacity="0.38"/>
+  </filter>
+</defs>
+<rect width="390" height="844" fill="url(#bg)"/>
+<g transform="translate(169.5,339.0)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(169.5,338.2)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(169.8,335.8)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(170.6,332.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(172.0,326.8)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(174.2,320.7)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(177.5,313.7)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(181.9,306.3)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(187.4,298.9)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(194.1,291.6)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(202.0,285.0)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(210.9,279.3)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(220.8,274.7)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(231.5,271.5)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(242.7,269.9)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(254.2,270.0)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(265.8,271.8)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(277.2,275.4)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(288.0,280.5)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(298.1,287.2)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(307.1,295.3)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(314.9,304.5)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(321.1,314.7)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(325.7,325.7)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(328.6,337.2)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(329.5,349.0)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(328.6,361.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(325.7,373.0)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(321.1,384.9)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(314.9,396.6)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(307.1,408.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(298.1,419.1)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(288.0,430.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(277.2,440.5)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(265.8,450.8)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(254.2,460.9)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(242.7,470.7)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(231.5,480.3)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(220.8,489.7)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(210.9,498.9)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(202.0,507.7)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(194.1,516.2)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(187.4,524.2)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(181.9,531.7)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(177.5,538.4)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(174.2,544.4)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(172.0,549.5)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(170.6,553.6)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(169.8,556.6)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(169.5,558.4)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(169.5,559.0)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(169.5,558.4)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(169.2,556.6)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(168.4,553.6)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(167.0,549.5)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(164.8,544.4)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(161.5,538.4)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(157.1,531.7)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(151.6,524.2)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(144.9,516.2)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(137.0,507.7)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(128.1,498.9)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(118.2,489.7)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(107.5,480.3)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(96.3,470.7)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(84.8,460.9)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(73.2,450.8)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(61.8,440.5)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(51.0,430.0)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(40.9,419.1)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(31.9,408.0)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(24.1,396.6)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(17.9,384.9)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(13.3,373.0)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">保持好心情</text>
+</g>
+<g transform="translate(10.4,361.0)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(9.5,349.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(10.4,337.2)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(13.3,325.7)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(17.9,314.7)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(24.1,304.5)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(31.9,295.3)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(40.9,287.2)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(51.0,280.5)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(61.8,275.4)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好吃饭</text>
+</g>
+<g transform="translate(73.2,271.8)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(84.8,270.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(96.3,269.9)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(107.5,271.5)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(118.2,274.7)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(128.1,279.3)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(137.0,285.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(144.9,291.6)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(151.6,298.9)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(157.1,306.3)">
+<rect width="75" height="30" rx="4" fill="#d6f5d6" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">别熬夜</text>
+</g>
+<g transform="translate(161.5,313.7)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">顺顺利利</text>
+</g>
+<g transform="translate(164.8,320.7)">
+<rect width="75" height="30" rx="4" fill="#ff9ec4" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">身体健康</text>
+</g>
+<g transform="translate(167.0,326.8)">
+<rect width="75" height="30" rx="4" fill="#ffd1dc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">学业有成</text>
+</g>
+<g transform="translate(168.4,332.0)">
+<rect width="75" height="30" rx="4" fill="#cfe9ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">好好爱自己</text>
+</g>
+<g transform="translate(169.2,335.8)">
+<rect width="75" height="30" rx="4" fill="#fff6cc" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">天凉了多穿衣服</text>
+</g>
+<g transform="translate(169.5,338.2)">
+<rect width="75" height="30" rx="4" fill="#cfe4ff" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" filter="url(#sh)"/>
+<path d="M0 4 a4 4 0 0 1 4 -4 h67 a4 4 0 0 1 4 4 v5 h-75 z" fill="rgba(255,255,255,0.55)"/>
+<text x="4" y="6.5" font-size="6" font-family="system-ui,sans-serif" fill="#333" opacity="0.75">提示</text>
+<circle cx="69" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="64" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<circle cx="59" cy="4.5" r="1.3" fill="rgba(0,0,0,0.25)"/>
+<text x="37.5" y="22.4" text-anchor="middle" font-size="8" font-weight="600" font-family="system-ui,-apple-system,'PingFang SC',sans-serif" fill="#2b2b2b">我喜欢你</text>
+</g>
+<text x="195.0" y="822" text-anchor="middle" font-size="10" letter-spacing="1.5" font-family="system-ui,sans-serif" fill="rgba(255,200,225,0.55)">弹窗爱心 · 100 个提示窗沿参数方程排布</text>
+</svg>
