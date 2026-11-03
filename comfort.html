@@ -182,20 +182,20 @@
     padding: 24px;
   }
   .finale.show { opacity: 1; }
-  .finale .big {
-    font-size: min(8.6vw, 36px);
-    font-weight: 800;
+  .finale .words {
+    max-width: min(86vw, 460px);
+  }
+  .finale .words p {
+    margin: 0;
+    font-size: min(6.6vw, 27px);
+    font-weight: 700;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
     color: #ffe4ee;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-    text-shadow: 0 10px 40px rgba(255, 60, 120, 0.42);
+    text-shadow: 0 10px 36px rgba(255, 60, 120, 0.38);
   }
-  .finale .sub {
-    margin-top: 16px;
-    color: rgba(255, 195, 215, 0.75);
-    font-size: 14px;
-    letter-spacing: 0.18em;
-  }
+  .finale .words p.gap { margin-top: 0.7em; }
+  .finale .words p:last-child { color: #ffc2d6; }
 
   @media (prefers-reduced-motion: reduce) {
     body::before, body::after, .paper::after, .pulse { animation: none; }
@@ -230,9 +230,11 @@
 </div>
 
 <div class="finale" id="finale">
-  <div>
-    <div class="big">乖，<br>剩下的交给我</div>
-    <div class="sub">你要做的，只是好好的 ❤</div>
+  <div class="words">
+    <p>有压力是正常的，</p>
+    <p>说出来总会好一些。</p>
+    <p class="gap">不要把所有的压力和不开心，</p>
+    <p>都悄无声息地消化。</p>
   </div>
 </div>
 
