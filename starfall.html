@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05040f">
+<title>voyage d'amour</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #05040f; }
+  canvas { display: block; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("sky");
+  const ctx = canvas.getContext("2d");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ====== 想换中心文字就改这里 ======
+  const TEXT = "voyage d'amour";
+  // 用 U+2004（三分空）把字母拉开，和原版一样是"字距拉开"的效果
+  const SPACED = TEXT.split("").join(String.fromCharCode(0x2004));
+  // ================================
+
+  let W = 0, H = 0, dpr = 1;
+  let cx = 0, cy = 0;
+
+  const FOCAL = 520;
+  const NEAR = 1;
+  const FAR = 1400;
+  const COUNT = 460;
+  const SPEED = 340;
+
+  let roll = -0.34;
+  let rollSpin = 0.02;
+
+  const stars = [];
+  const flares = [];
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = W / 2;
+    cy = H / 2;
+  }
+
+  function makeStar(initial) {
+    const spread = FAR * 0.9;
+    return {
+      x: (Math.random() - 0.5) * spread,
+      y: (Math.random() - 0.5) * spread,
+      z: initial ? NEAR + Math.random() * FAR : FAR * (0.92 + Math.random() * 0.12),
+      hue: 235 + Math.random() * 45,
+      bright: 0.45 + Math.random() * 0.55,
+      twinkle: Math.random() * Math.PI * 2,
+    };
+  }
+
+  function initStars() {
+    stars.length = 0;
+    for (let i = 0; i < COUNT; i += 1) stars.push(makeStar(true));
+  }
+
+  function project(x, y, z) {
+    const cos = Math.cos(roll), sin = Math.sin(roll);
+    const rx = x * cos - y * sin;
+    const ry = x * sin + y * cos;
+    const k = FOCAL / Math.max(NEAR, z);
+    return { X: cx + rx * k, Y: cy + ry * k, k };
+  }
+
+  /** 中心的镜头光斑：四芒 + 十字光晕 */
+  function drawCenterFlare(time) {
+    const pulse = 0.78 + 0.22 * Math.sin(time * 2.2);
+    const R = Math.min(W, H) * 0.42 * pulse;
+
+    // 大范围柔光
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+    glow.addColorStop(0, "rgba(190, 175, 255, 0.20)");
+    glow.addColorStop(0.35, "rgba(120, 110, 220, 0.07)");
+    glow.addColorStop(1, "rgba(80, 70, 160, 0)");
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 四芒星（两组交叉的细长光条）
+    const len = Math.min(W, H) * (0.34 + 0.05 * pulse);
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(roll * 0.6);
+    for (let i = 0; i < 2; i += 1) {
+      const g = ctx.createLinearGradient(-len, 0, len, 0);
+      g.addColorStop(0, "rgba(180, 160, 255, 0)");
+      g.addColorStop(0.5, "rgba(255, 255, 255, 0.55)");
+      g.addColorStop(1, "rgba(180, 160, 255, 0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, len, 1.6, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.rotate(Math.PI / 2);
+    }
+    ctx.restore();
+
+    // 中心亮点
+    const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, 40);
+    core.addColorStop(0, "rgba(255,255,255,0.95)");
+    core.addColorStop(0.35, "rgba(210, 200, 255, 0.45)");
+    core.addColorStop(1, "rgba(160, 150, 255, 0)");
+    ctx.fillStyle = core;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 40, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  function drawText() {
+    const size = Math.max(13, Math.min(30, W * 0.042));
+    ctx.save();
+    ctx.font = `italic ${size}px "Microsoft YaHei", system-ui, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.shadowColor = "rgba(200, 190, 255, 0.65)";
+    ctx.shadowBlur = 18;
+    ctx.fillText(SPACED, cx, cy + size * 0.2);
+    ctx.restore();
+  }
+
+  let last = performance.now();
+  const start = last;
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const t = (now - start) / 1000;
+
+    if (!reduceMotion) roll += dt * rollSpin;
+
+    const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.75);
+    bg.addColorStop(0, "#0a0820");
+    bg.addColorStop(0.55, "#06040f");
+    bg.addColorStop(1, "#030208");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalCompositeOperation = "lighter";
+    ctx.lineCap = "round";
+
+    for (let i = 0; i < stars.length; i += 1) {
+      const s = stars[i];
+      s.z -= SPEED * dt * (0.6 + s.bright * 0.9);
+
+      if (s.z <= NEAR) {
+        const fresh = makeStar(false);
+        s.x = fresh.x; s.y = fresh.y; s.z = fresh.z;
+        s.hue = fresh.hue; s.bright = fresh.bright; s.twinkle = fresh.twinkle;
+        continue;
+      }
+
+      const trail = 26 + s.z * 0.28;
+      const head = project(s.x, s.y, s.z);
+      const tail = project(s.x, s.y, s.z + trail);
+
+      if (head.X < -200 || head.X > W + 200 || head.Y < -200 || head.Y > H + 200) {
+        if (s.z < NEAR * 2) s.z = FAR;
+        continue;
+      }
+
+      const twinkle = 0.72 + 0.28 * Math.sin(t * 3 + s.twinkle);
+      const fade = Math.min(1, (FAR - s.z) / 260);
+      const alpha = Math.min(1, (1 - s.z / FAR) * 1.6) * s.bright * twinkle * fade;
+      const width = Math.max(0.7, Math.min(4.2, 90 / s.z));
+
+      const grad = ctx.createLinearGradient(tail.X, tail.Y, head.X, head.Y);
+      grad.addColorStop(0, `hsla(${s.hue}, 90%, 72%, 0)`);
+      grad.addColorStop(0.72, `hsla(${s.hue}, 92%, 76%, ${(alpha * 0.55).toFixed(3)})`);
+      grad.addColorStop(1, `hsla(${s.hue - 10}, 100%, 92%, ${alpha.toFixed(3)})`);
+
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      ctx.moveTo(tail.X, tail.Y);
+      ctx.lineTo(head.X, head.Y);
+      ctx.stroke();
+
+      if (s.z < 260) {
+        const r = Math.max(0.8, Math.min(3.2, 44 / s.z));
+        ctx.fillStyle = `rgba(255, 255, 255, ${(alpha * 0.9).toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(head.X, head.Y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    drawCenterFlare(t);
+    drawText();
+    ctx.globalCompositeOperation = "source-over";
+    requestAnimationFrame(frame);
+  }
+
+  addEventListener("pointerdown", () => {
+    rollSpin = rollSpin > 0 ? -0.02 : 0.02;
+    roll += (Math.random() - 0.5) * 0.5;
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  initStars();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
