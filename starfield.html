@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05040f">
+<title>漫天流星</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #05040f; }
+  canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: fixed; left: 0; right: 0;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    text-align: center;
+    color: rgba(180, 180, 255, 0.38);
+    font: 12px/1.6 system-ui, -apple-system, "PingFang SC", sans-serif;
+    letter-spacing: 0.22em;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+  }
+  .hint.hide { opacity: 0; }
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="hint" id="hint">点一下，换个方向</div>
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("sky");
+  const ctx = canvas.getContext("2d");
+  const hint = document.getElementById("hint");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let W = 0, H = 0, dpr = 1;
+  let cx = 0, cy = 0;
+
+  const FOCAL = 520;      // 焦距：越大越"平"
+  const NEAR = 1;         // 近裁剪面
+  const FAR = 1400;       // 最远生成距离
+  const COUNT = 460;      // 星星数量
+  const SPEED = 340;      // 每秒向镜头推进的距离
+
+  let roll = -0.34;       // 画面整体倾斜（那些斜着划过的流星）
+  let rollSpin = 0.02;
+
+  const stars = [];
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = W / 2;
+    cy = H / 2;
+  }
+
+  function makeStar(initial) {
+    // 在视锥里随机取一个方向，z 决定远近
+    const spread = FAR * 0.9;
+    return {
+      x: (Math.random() - 0.5) * spread,
+      y: (Math.random() - 0.5) * spread,
+      z: initial ? NEAR + Math.random() * FAR : FAR * (0.92 + Math.random() * 0.12),
+      hue: 235 + Math.random() * 45,      // 蓝紫区间
+      bright: 0.45 + Math.random() * 0.55,
+      twinkle: Math.random() * Math.PI * 2,
+    };
+  }
+
+  function initStars() {
+    stars.length = 0;
+    for (let i = 0; i < COUNT; i += 1) stars.push(makeStar(true));
+  }
+
+  /** 3D 点 → 屏幕坐标，同时应用 roll 旋转 */
+  function project(x, y, z) {
+    const cos = Math.cos(roll), sin = Math.sin(roll);
+    const rx = x * cos - y * sin;
+    const ry = x * sin + y * cos;
+    const k = FOCAL / Math.max(NEAR, z);
+    return { X: cx + rx * k, Y: cy + ry * k, k };
+  }
+
+  let last = performance.now();
+  const start = last;
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    const t = (now - start) / 1000;
+
+    if (!reduceMotion) roll += dt * rollSpin;
+
+    // 背景：深空 + 中心微光
+    const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.75);
+    bg.addColorStop(0, "#0a0820");
+    bg.addColorStop(0.55, "#06040f");
+    bg.addColorStop(1, "#030208");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalCompositeOperation = "lighter";
+    ctx.lineCap = "round";
+
+    for (let i = 0; i < stars.length; i += 1) {
+      const s = stars[i];
+
+      // 推进：远 → 近
+      s.z -= SPEED * dt * (0.6 + s.bright * 0.9);
+
+      if (s.z <= NEAR) {
+        const fresh = makeStar(false);
+        s.x = fresh.x; s.y = fresh.y; s.z = fresh.z;
+        s.hue = fresh.hue; s.bright = fresh.bright; s.twinkle = fresh.twinkle;
+        continue;
+      }
+
+      // 尾巴：同一方向更远的一点，投到屏幕就是一条线
+      const trail = 26 + s.z * 0.28;
+      const head = project(s.x, s.y, s.z);
+      const tail = project(s.x, s.y, s.z + trail);
+
+      // 太靠边缘的直接跳过，省得画到屏幕外
+      if (head.X < -200 || head.X > W + 200 || head.Y < -200 || head.Y > H + 200) {
+        if (s.z < NEAR * 2) s.z = FAR;
+        continue;
+      }
+
+      const twinkle = 0.72 + 0.28 * Math.sin(t * 3 + s.twinkle);
+      const fade = Math.min(1, (FAR - s.z) / 260);      // 刚生成时淡入
+      const alpha = Math.min(1, (1 - s.z / FAR) * 1.6) * s.bright * twinkle * fade;
+
+      const width = Math.max(0.7, Math.min(4.2, 90 / s.z));
+
+      const grad = ctx.createLinearGradient(tail.X, tail.Y, head.X, head.Y);
+      grad.addColorStop(0, `hsla(${s.hue}, 90%, 72%, 0)`);
+      grad.addColorStop(0.72, `hsla(${s.hue}, 92%, 76%, ${(alpha * 0.55).toFixed(3)})`);
+      grad.addColorStop(1, `hsla(${s.hue - 10}, 100%, 92%, ${alpha.toFixed(3)})`);
+
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      ctx.moveTo(tail.X, tail.Y);
+      ctx.lineTo(head.X, head.Y);
+      ctx.stroke();
+
+      // 近处的星点加个芯
+      if (s.z < 260) {
+        const r = Math.max(0.8, Math.min(3.2, 44 / s.z));
+        ctx.fillStyle = `rgba(255, 255, 255, ${(alpha * 0.9).toFixed(3)})`;
+        ctx.beginPath();
+        ctx.arc(head.X, head.Y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    ctx.globalCompositeOperation = "source-over";
+    requestAnimationFrame(frame);
+  }
+
+  addEventListener("pointerdown", () => {
+    hint.classList.add("hide");
+    rollSpin = rollSpin > 0 ? -0.02 : 0.02;
+    roll += (Math.random() - 0.5) * 0.5;
+  });
+
+  addEventListener("resize", resize);
+  resize();
+  initStars();
+  requestAnimationFrame(frame);
+  setTimeout(() => hint.classList.add("hide"), 9000);
+})();
+</script>
+</body>
+</html>
