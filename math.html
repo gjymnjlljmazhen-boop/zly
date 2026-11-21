@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1224">
+<title>5201314</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; min-height: 100%;
+    background:
+      radial-gradient(120% 70% at 50% 0%, #1a2340 0%, #0d1224 55%, #070a15 100%);
+    color: #e8ecff;
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 20px 80px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: #8fa4d6;
+    border: 1px solid rgba(143, 164, 214, 0.35);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+  h1 {
+    font-size: 22px;
+    margin: 14px 0 6px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .sub { color: #8fa4d6; font-size: 13px; margin-bottom: 22px; }
+
+  .card {
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+    border: 1px solid rgba(160, 180, 230, 0.18);
+    border-radius: 16px;
+    padding: 16px 16px 12px;
+    margin-bottom: 18px;
+  }
+
+  /* ---------- 数学排版 ---------- */
+  .math {
+    font-family: "Times New Roman", "Songti SC", "SimSun", serif;
+    font-size: 17px;
+    line-height: 2.1;
+    color: #eef2ff;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .math .row { white-space: nowrap; }
+
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 0.18em;
+    transform: translateY(-0.06em);
+  }
+  .frac > span:first-child {
+    padding: 0 0.28em 0.1em;
+    border-bottom: 1px solid rgba(232, 236, 255, 0.75);
+    white-space: nowrap;
+  }
+  .frac > span:last-child {
+    padding: 0.12em 0.28em 0;
+    white-space: nowrap;
+  }
+  .lim { font-style: normal; }
+  .lim sub { font-size: 0.72em; margin-left: 0.1em; }
+  sup { font-size: 0.72em; }
+  .eq { display: flex; gap: 8px; align-items: flex-start; }
+  .eq .lhs { flex: 0 0 auto; }
+  .eq .rhs { flex: 1 1 auto; min-width: 0; }
+
+  /* ---------- 步骤 ---------- */
+  .step {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .step.in { opacity: 1; transform: none; }
+  .step .label {
+    font-size: 12px;
+    color: #7f92c4;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- 答案 ---------- */
+  .answer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 26px 16px 30px;
+    border-radius: 20px;
+    background: radial-gradient(120% 100% at 50% 0%, rgba(255, 90, 140, 0.16), rgba(255, 90, 140, 0.02) 60%, transparent);
+    border: 1px solid rgba(255, 120, 160, 0.22);
+  }
+  .answer .eqsmall {
+    font-family: "Times New Roman", serif;
+    font-size: 15px;
+    color: #b9c4e8;
+    margin-bottom: 12px;
+  }
+  .answer .big {
+    font-size: clamp(38px, 13vw, 68px);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    background: linear-gradient(120deg, #fff, #ffc2d6 40%, #ff5c8a 78%, #ff8fb0);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 10px 34px rgba(255, 70, 120, 0.45));
+    transition: transform 0.6s cubic-bezier(.2, .9, .3, 1.4);
+  }
+  .answer .big.pop { transform: scale(1.06); }
+  .answer .note {
+    margin-top: 12px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: rgba(255, 190, 215, 0.75);
+  }
+  .answer .hint {
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(185, 196, 232, 0.5);
+  }
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<div class="wrap">
+  <div class="tag">例 15 · 1<sup>∞</sup> 型极限</div>
+  <h1>一道算完之后，会说话的题</h1>
+  <div class="sub">慢慢往下翻，每一步都只是普通的求极限。</div>
+
+  <div class="card">
+    <div class="math">
+      <div class="row">
+        <span class="lim">lim<sub>x→0</sub></span>
+        <span>(</span>
+        <span class="frac"><span>2<sup>x</sup> + 53<sup>x</sup> + 49069<sup>x</sup></span><span>3</span></span>
+        <span>)<sup>3/x</sup></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="label">① 先取对数，把指数拿下来</div>
+    <div class="math">
+      <div class="row">设 y = (……)<sup>3/x</sup>，则 ln y = <span class="frac"><span>3</span><span>x</span></span> · ln<span class="frac"><span>2<sup>x</sup>+53<sup>x</sup>+49069<sup>x</sup></span><span>3</span></span></div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="label">② 求 ln y 的极限</div>
+    <div class="math">
+      <div class="row">
+        <span class="lim">lim<sub>x→0</sub></span> ln y =
+        <span class="lim">lim<sub>x→0</sub></span>
+        <span class="frac"><span>3</span><span>x</span></span> · ln<span class="frac"><span>2<sup>x</sup>+53<sup>x</sup>+49069<sup>x</sup></span><span>3</span></span>
+        = 3 · <span class="lim">lim<sub>x→0</sub></span>
+        <span class="frac"><span>ln<span class="frac"><span>2<sup>x</sup>+53<sup>x</sup>+49069<sup>x</sup></span><span>3</span></span></span><span>x</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="label">③ 0/0 型，分子分母分别求导（洛必达）</div>
+    <div class="math">
+      <div class="row">
+        = 3 · <span class="lim">lim<sub>x→0</sub></span>
+        <span class="frac">
+          <span>2<sup>x</sup> ln2 + 53<sup>x</sup> ln53 + 49069<sup>x</sup> ln49069</span>
+          <span>2<sup>x</sup> + 53<sup>x</sup> + 49069<sup>x</sup></span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="label">④ 令 x→0，分母趋于 3</div>
+    <div class="math">
+      <div class="row">
+        = 3 · <span class="frac"><span>ln2 + ln53 + ln49069</span><span>3</span></span>
+        = ln2 + ln53 + ln49069
+      </div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="label">⑤ 由 y = e<sup>ln y</sup> 还原</div>
+    <div class="math">
+      <div class="row">
+        <span class="lim">lim<sub>x→0</sub></span> y =
+        e<sup>ln2 + ln53 + ln49069</sup>
+        = 2 × 53 × 49069
+      </div>
+    </div>
+  </div>
+
+  <div class="answer step" id="answer">
+    <div class="eqsmall">= 2 × 53 × 49069</div>
+    <div class="big" id="big">5201314</div>
+    <div class="note">5201314 · 我爱你一生一世</div>
+    <div class="hint">点一下这个数字</div>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const canvas = document.getElementById("fx");
+  const ctx = canvas.getContext("2d");
+  const steps = [...document.querySelectorAll(".step")];
+  const big = document.getElementById("big");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let W = 0, H = 0, dpr = 1;
+  const bits = [];
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function spawn(n) {
+    for (let i = 0; i < n; i += 1) {
+      bits.push({
+        x: W / 2 + (Math.random() - 0.5) * W * 0.5,
+        y: H * (0.45 + Math.random() * 0.2),
+        vx: (Math.random() - 0.5) * 120,
+        vy: -(60 + Math.random() * 160),
+        r: 1.2 + Math.random() * 2.6,
+        life: 0,
+        maxLife: 1.4 + Math.random() * 1.2,
+        hue: 330 + Math.random() * 25,
+      });
+    }
+  }
+
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    ctx.clearRect(0, 0, W, H);
+    for (let i = bits.length - 1; i >= 0; i -= 1) {
+      const b = bits[i];
+      b.life += dt;
+      if (b.life > b.maxLife) { bits.splice(i, 1); continue; }
+      b.vy += 200 * dt;
+      b.x += b.vx * dt;
+      b.y += b.vy * dt;
+      const k = b.life / b.maxLife;
+      ctx.globalAlpha = 1 - k * k;
+      ctx.fillStyle = `hsla(${b.hue}, 90%, 76%, 1)`;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r * (1 - k * 0.4), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+
+  // 滚动到就淡入
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.2 });
+  steps.forEach((el) => io.observe(el));
+
+  // 点数字：放大 + 撒花
+  big.addEventListener("click", () => {
+    big.classList.add("pop");
+    setTimeout(() => big.classList.remove("pop"), 420);
+    if (!reduceMotion) spawn(70);
+  });
+
+  resize();
+  if (!reduceMotion) {
+    // 首屏也给一点点气氛
+    setTimeout(() => spawn(18), 600);
+  }
+  requestAnimationFrame(frame);
+  addEventListener("resize", resize);
+})();
+</script>
+</body>
+</html>
